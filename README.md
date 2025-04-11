@@ -1,5 +1,5 @@
 # PiecewiseLinApprox.jl
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://lico-labs.github.io/LinA.jl/) [![DOI](https://zenodo.org/badge/510425449.svg)](https://doi.org/10.5281/zenodo.14052031)
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://lico-labs.github.io/PiecewiseLinApprox.jl/) [![DOI](https://zenodo.org/badge/510425449.svg)](https://doi.org/10.5281/zenodo.14052031)
 
 
 PiecewiseLinApprox.jl (formerly LinA.jl) is a state-of-the-art piecewise linear approximation package that approximates (or over/under-estimates) univariate differentiable $\mathbb{R} \rightarrow \mathbb{R}$ functions with an optimal (in terms of number of segments) piecewise linear function given an error metric.
@@ -49,7 +49,7 @@ julia> pwl[2].xMax
 -2.0
 ```
 ### Plotting
-Pwl functions are compatible with Plots.jl. To plot a pwl function simply do
+Pwl functions are native Julia functions and are compatible with Plots.jl. To plot a pwl function simply do
 ```julia
 using Plots
 
