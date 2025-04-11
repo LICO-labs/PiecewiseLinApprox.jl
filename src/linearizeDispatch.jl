@@ -18,7 +18,7 @@ Makes an optimal piecewise Linear approximation of expr_fct from x1 to x2. The r
 
 !!! note
     It is also possible to specify which algorithm to use between `HeuristicLin()` and `ExactLin()` by simply adding it after the error type.
-    By default LinA uses the heuristic.
+    By default PiecewiseLinApprox uses the heuristic.
 
 
 !!! note
@@ -27,7 +27,7 @@ Makes an optimal piecewise Linear approximation of expr_fct from x1 to x2. The r
 # Example
 ```julia-repl
 julia> pwl = Linearize(:(x^2),0,2,Absolute(0.1))
-3-element Vector{LinA.LinearPiece}:
+3-element Vector{PiecewiseLinApprox.LinearPiece}:
  0.894427190999916 x -0.1 from 0.0 to 0.894427190999916
  2.683281572999748 x -1.7000000000000006 from 0.894427190999916 to 1.7888543819998326
  4.736067977499794 x -5.372135954999589 from 1.7888543819998326 to 2.0

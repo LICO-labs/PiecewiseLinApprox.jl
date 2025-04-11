@@ -1,4 +1,4 @@
-using LinA
+using PiecewiseLinApprox
 using Test
 
 function TestErrorAbsolute(f,pwl,delta)

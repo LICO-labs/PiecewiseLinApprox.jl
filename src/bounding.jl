@@ -57,7 +57,7 @@ Makes an optimal piecewise Linear underestimation and overestimation of expr_fct
 
 !!! note
     It is also possible to specify which algorithm to use between `HeuristicLin()` and `ExactLin()` by simply adding it after the error type.
-    By default LinA uses the heuristic.
+    By default PiecewiseLinApprox uses the heuristic.
 
 """
 function LinearBounding(

@@ -4,7 +4,7 @@ function SimultaneousLin(
     expr_fct::Union{Expr,Function},
     x1::Real,
     x2::Real,
-    e::LinA.ErrorType,
+    e::PiecewiseLinApprox.ErrorType,
     algorithm;
     ConcavityChanges = [Inf]::Array{Float64,1},
 )
@@ -38,20 +38,20 @@ Makes a pair of optimal piecewise Linear underestimation and overestimation of e
 
 !!! note
     It is also possible to specify which algorithm to use between `HeuristicLin()` and `ExactLin()` by simply adding it after the error type.
-    By default LinA uses the heuristic.
+    By default PiecewiseLinApprox uses the heuristic.
 
 """
 function SimultaneousLin(
     expr_fct::Union{Expr,Function},
     x1::Real,
     x2::Real,
-    e::LinA.ErrorType;
-    algorithm = LinA.HeuristicLin(),
+    e::PiecewiseLinApprox.ErrorType;
+    algorithm = PiecewiseLinApprox.HeuristicLin(),
     ConcavityChanges = [Inf]::Array{Float64,1},
 )
 
 
-    if typeof(e) == LinA.Absolute
+    if typeof(e) == PiecewiseLinApprox.Absolute
         return LinearBounding(expr_fct, x1, x2, e, algorithm; ConcavityChanges)
     end
 
@@ -60,8 +60,8 @@ function SimultaneousLin(
     #note : this is inneficient as it recomputes the whole linearization between after every new linear piece
     #TODO : rewrite this efficiently (which requires to do different things for exact and heuristic) 
     tol = 0.00001
-    l = Array{LinA.LinearPiece}(undef, 0)
-    o = Array{LinA.LinearPiece}(undef, 0)
+    l = Array{PiecewiseLinApprox.LinearPiece}(undef, 0)
+    o = Array{PiecewiseLinApprox.LinearPiece}(undef, 0)
 
     while x2 - x1 > tol
 
@@ -71,7 +71,7 @@ function SimultaneousLin(
             x2,
             e,
             algorithm;
-            bounding = LinA.Under(),
+            bounding = PiecewiseLinApprox.Under(),
             ConcavityChanges,
         )[1]
         overPwl = Linearize(
@@ -80,13 +80,13 @@ function SimultaneousLin(
             x2,
             e,
             algorithm;
-            bounding = LinA.Over(),
+            bounding = PiecewiseLinApprox.Over(),
             ConcavityChanges,
         )[1]
 
         newx1 = max(underPwl.xMax, overPwl.xMax)
-        push!(l, LinA.LinearPiece(x1, newx1, underPwl.a, underPwl.b, underPwl.fct))
-        push!(o, LinA.LinearPiece(x1, newx1, overPwl.a, overPwl.b, overPwl.fct))
+        push!(l, PiecewiseLinApprox.LinearPiece(x1, newx1, underPwl.a, underPwl.b, underPwl.fct))
+        push!(o, PiecewiseLinApprox.LinearPiece(x1, newx1, overPwl.a, overPwl.b, overPwl.fct))
 
         x1 = newx1
     end

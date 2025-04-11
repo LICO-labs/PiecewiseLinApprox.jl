@@ -1,4 +1,4 @@
-module LinA
+module PiecewiseLinApprox
 
 using Calculus
 using CDDLib

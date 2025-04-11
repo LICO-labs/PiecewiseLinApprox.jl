@@ -60,4 +60,4 @@ plot(x->pwl(x),-10,10)
 
 ## Citing
 
-If you have used our library and wish to cite our work (which we greatly encourage) use the reference of [our paper.](https://link.springer.com/article/10.1007/s12532-024-00274-8) Starring the _LinA.jl_ repository on GitHub is also appreciated.
+If you have used our library and wish to cite our work (which we greatly encourage) use the reference of [our paper.](https://link.springer.com/article/10.1007/s12532-024-00274-8) Starring the _PiecewiseLinApprox.jl_ repository on GitHub is also appreciated.
