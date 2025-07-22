@@ -11,7 +11,7 @@ Details of the algorithms can be found in [this paper.](https://link.springer.co
 To install PiecewiseLinApprox, first, enter Pkg mode by hitting `]`, and then run the following command:
 
 ```julia-repl
-pkg> add https://github.com/LICO-labs/PiecewiseLinApprox.jl
+pkg> add PiecewiseLinApprox
 ```
 
 
