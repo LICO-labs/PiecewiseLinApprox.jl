@@ -17,7 +17,7 @@ pkg> add PiecewiseLinApprox
 
 ## Usage of the PiecewiseLinApprox package
 
-For the full documentation, see the [documentation webpage.](https://lico-labs.github.io/LinA.jl/) 
+For the full documentation, see the [documentation webpage.](https://lico-labs.github.io/PiecewiseLinApprox.jl/) 
 ### Basic use
 To linearize $f(x) = x^2$ from -10 to 10 with a maximum absolute error of $2$ simply do
 ```julia
