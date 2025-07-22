@@ -1,4 +1,4 @@
-# LinA.jl Documentation
+# PiecewiseLinApprox.jl Documentation
 
 ```@docs
 Linearize
